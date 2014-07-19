@@ -1,0 +1,17 @@
+{
+clothing_list:
+[
+{
+name: "farah_the_langwell_shirt.json",
+summary: "Leave your boring button down at the office. Putting on this rad print from Farah is like wearing the weekend..",
+title: "FARAH THE LANGWELL S/S SHIRT",
+img: "farah_the_langwell_shirt.jpg"
+},
+{
+name: "zanerobe_dynamo_chino_pant.json",
+summary: "Dynamo Chino Pant by Zanerobe. 100% authentic Zanerobe merchandise.",
+title: "ZANEROBE DYNAMO CHINO PANT",
+img: "zanerobe_dynamo_chino_pant.jpg"
+}
+]
+}

@@ -1,0 +1,22 @@
+{
+name: "farah_the_langwell_shirt.json",
+steps: [
+{
+text: "The Langwell S/S Shirt by Farah. 100% authentic Farah merchandise."
+}
+],
+summary: "Leave your boring button down at the office. Putting on this rad print from Farah is like wearing the weekend.",
+title: "FARAH THE LANGWELL S/S SHIRT",
+img: "farah_the_langwell_shirt.jpg",
+features: [
+{
+text: "$45"
+},
+{
+text: "57% off retail"
+},
+{
+text: "was $105"
+}
+]
+}

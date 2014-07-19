@@ -1,0 +1,22 @@
+{
+name: "zanerobe_dynamo_chino_pant.json",
+steps: [
+{
+text: "Dynamo Chino Pant by Zanerobe. 100% authentic Zanerobe merchandise."
+}
+],
+summary: "Dynamo Chino Pant by Zanerobe. 100% authentic Zanerobe merchandise.",
+title: "ZANEROBE DYNAMO CHINO PANT",
+img: "zanerobe_dynamo_chino_pant.jpg",
+features: [
+{
+text: "ColorMilitary Green"
+},
+{
+text: "All measurements based"
+},
+{
+text: "pockets, Back welt"
+}
+]
+}
