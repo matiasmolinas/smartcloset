@@ -40,7 +40,7 @@ public class ClothingActivity extends Activity {
         loadRecipe();
         
         // call AsynTask to perform network operation on separate thread
-        new LedOnAsyncTask().execute("");
+        new LedOnAsyncTask().execute("http://192.168.100.44/e");
     }
 
     @Override

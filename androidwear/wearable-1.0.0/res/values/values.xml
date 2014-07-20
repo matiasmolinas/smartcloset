@@ -123,8 +123,5 @@
 
     <style name="Theme.Wearable" parent="@android:Theme.DeviceDefault.Light.NoActionBar" />
 
-    <style name="Theme.Wearable.Modal">
-        <item name="android:windowSwipeToDismiss">false</item>
-    </style>
 
 </resources>

@@ -3,6 +3,7 @@ package com.smartcloset.android.wearable.smartclosetassistant;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,5 +32,22 @@ public class MainActivity extends ListActivity {
 
         mAdapter = new ClothingListAdapter(this);
         setListAdapter(mAdapter);
+        
+        // call AsynTask to perform network operation on separate thread
+        new LedOffAsyncTask().execute("http://192.168.100.44/a");
     }
+    
+    private class LedOffAsyncTask extends AsyncTask<String, Void, Void> {
+		@Override
+		protected Void doInBackground(String... urls) {
+			try{
+				//Set led on calling arduino service .. this is only a proof of concept
+				AssetUtils.callService(urls[0]);
+			}
+			catch (Exception e) {
+				Log.e(TAG, "Failed to load exercise: " + e);
+			}
+			return null;
+		}
+	}
 }
