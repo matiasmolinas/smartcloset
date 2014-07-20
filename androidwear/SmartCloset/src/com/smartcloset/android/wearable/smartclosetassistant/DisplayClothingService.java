@@ -1,6 +1,7 @@
 package com.smartcloset.android.wearable.smartclosetassistant;
 
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,14 +12,14 @@ import android.support.v4.app.NotificationCompat;
 
 import java.util.ArrayList;
 
-public class ClothingService extends Service {
+public class DisplayClothingService extends Service {
     private NotificationManagerCompat mNotificationManager;
     private Binder mBinder = new LocalBinder();
     private Clothing mClothing;
 
     public class LocalBinder extends Binder {
-    	ClothingService getService() {
-            return ClothingService.this;
+    	DisplayClothingService getService() {
+            return DisplayClothingService.this;
         }
     }
 
@@ -70,10 +71,16 @@ public class ClothingService extends Service {
         builder.setContentTitle(mClothing.titleText);
         builder.setContentText(mClothing.summaryText);
         builder.setSmallIcon(R.mipmap.ic_notification_closet);
+        
+        Intent displayClothingIntent = new Intent(this, ShowClothingService.class);
+        PendingIntent clothingPendingIntent =
+                PendingIntent.getActivity(this, 0, displayClothingIntent, 0);
+        
 
         Notification notification = builder
                 .extend(new NotificationCompat.WearableExtender()
                         .addPages(notificationPages))
+                        .addAction(R.mipmap.ic_notification_closet, "Display clothing", clothingPendingIntent)
                 .build();
         mNotificationManager.notify(Constants.NOTIFICATION_ID, notification);
     }

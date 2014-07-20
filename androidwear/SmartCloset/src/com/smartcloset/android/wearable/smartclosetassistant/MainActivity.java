@@ -34,20 +34,6 @@ public class MainActivity extends ListActivity {
         setListAdapter(mAdapter);
         
         // call AsynTask to perform network operation on separate thread
-        new LedOffAsyncTask().execute("http://192.168.100.44/a");
+        new LedOnOfAsyncTask().execute("http://192.168.100.44/a");
     }
-    
-    private class LedOffAsyncTask extends AsyncTask<String, Void, Void> {
-		@Override
-		protected Void doInBackground(String... urls) {
-			try{
-				//Set led on calling arduino service .. this is only a proof of concept
-				AssetUtils.callService(urls[0]);
-			}
-			catch (Exception e) {
-				Log.e(TAG, "Failed to load exercise: " + e);
-			}
-			return null;
-		}
-	}
 }

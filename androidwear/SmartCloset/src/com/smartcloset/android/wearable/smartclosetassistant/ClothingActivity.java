@@ -40,7 +40,7 @@ public class ClothingActivity extends Activity {
         loadRecipe();
         
         // call AsynTask to perform network operation on separate thread
-        new LedOnAsyncTask().execute("http://192.168.100.44/e");
+        new LedOnOfAsyncTask().execute("http://192.168.100.44/a");
     }
 
     @Override
@@ -118,23 +118,10 @@ public class ClothingActivity extends Activity {
     }
 
     private void startDressing() {
-        Intent intent = new Intent(this, ClothingService.class);
+        Intent intent = new Intent(this, DisplayClothingService.class);
         intent.setAction(Constants.ACTION_START_DRESSING);
         intent.putExtra(Constants.EXTRA_CLOTHING, mClothing.toBundle());
         startService(intent);
     }
     
-    private class LedOnAsyncTask extends AsyncTask<String, Void, Void> {
-		@Override
-		protected Void doInBackground(String... urls) {
-			try{
-				//Set led on calling arduino service .. this is only a proof of concept
-				AssetUtils.callService(urls[0]);
-			}
-			catch (Exception e) {
-				Log.e(TAG, "Failed to load exercise: " + e);
-			}
-			return null;
-		}
-	}
 }
