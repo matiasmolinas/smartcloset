@@ -6,11 +6,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 final class AssetUtils {
     private static final String TAG = "SmartClosetAssistant";
@@ -61,4 +67,38 @@ final class AssetUtils {
         }
         return bitmap;
     }
+    
+    private static String convertInputStreamToString(InputStream inputStream)
+			throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(inputStream));
+		String line = "";
+		String result = "";
+		while ((line = bufferedReader.readLine()) != null)
+			result += line;
+
+		inputStream.close();
+		return result;
+	}
+
+	public static JSONObject callService(String url) {
+		InputStream inputStream = null;
+		JSONObject result = null;
+		try {
+			// create HttpClient
+			HttpClient httpclient = new DefaultHttpClient();
+			// make GET request to the given URL
+			HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
+			// receive response as inputStream
+			inputStream = httpResponse.getEntity().getContent();
+			// convert inputstream to string
+			if (inputStream != null){
+				String response = convertInputStreamToString(inputStream);
+				//result = new JSONObject(response);
+			}
+		} catch (Exception e) {
+			Log.d("InputStream", e.getLocalizedMessage());
+		}
+		return result;
+	}
 }

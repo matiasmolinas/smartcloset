@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +38,9 @@ public class ClothingActivity extends Activity {
             Log.d(TAG, "Intent: " + intent.toString() + " " + mClothingName);
         }
         loadRecipe();
+        
+        // call AsynTask to perform network operation on separate thread
+        new LedOnAsyncTask().execute("");
     }
 
     @Override
@@ -119,4 +123,18 @@ public class ClothingActivity extends Activity {
         intent.putExtra(Constants.EXTRA_CLOTHING, mClothing.toBundle());
         startService(intent);
     }
+    
+    private class LedOnAsyncTask extends AsyncTask<String, Void, Void> {
+		@Override
+		protected Void doInBackground(String... urls) {
+			try{
+				//Set led on calling arduino service .. this is only a proof of concept
+				AssetUtils.callService(urls[0]);
+			}
+			catch (Exception e) {
+				Log.e(TAG, "Failed to load exercise: " + e);
+			}
+			return null;
+		}
+	}
 }

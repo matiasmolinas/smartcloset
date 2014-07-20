@@ -69,7 +69,7 @@ public class ClothingService extends Service {
         }
         builder.setContentTitle(mClothing.titleText);
         builder.setContentText(mClothing.summaryText);
-        builder.setSmallIcon(R.mipmap.ic_notification_recipe);
+        builder.setSmallIcon(R.mipmap.ic_notification_closet);
 
         Notification notification = builder
                 .extend(new NotificationCompat.WearableExtender()
