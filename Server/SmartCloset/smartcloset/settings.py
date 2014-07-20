@@ -18,6 +18,13 @@ NSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'smartcloset_db.sqlite3'),
+    }
+}
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
