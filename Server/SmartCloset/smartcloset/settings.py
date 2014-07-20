@@ -40,7 +40,7 @@ WSGI_APPLICATION = 'smartcloset.wsgi.application'
 
 LANGUAGE_CODE = 'es-AR'
 
-TIME_ZONE = 'UTC-3'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
