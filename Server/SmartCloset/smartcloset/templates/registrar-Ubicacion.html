@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Smart Closet</title>
+</head>
+<body>
+	<header>
+		<h1>
+			Registrar Nueva Ropa
+		</h1>
+	</header>
+	<section>
+		<h2>
+			Registrar nueva ropa:
+		</h2>
+		<form method="post" action="{% url 'registrar' %}">{% csrf_token %}
+                <table>
+            <tr>
+                <td>{{ form.nombre.label_tag }}</td>
+                <td>{{ form.nombre }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.color.label_tag }}</td>
+                <td>{{ form.color }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.talle.label_tag }}</td>
+                <td>{{ form.talle }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.tiporopa.label_tag }}</td>
+                <td>{{ form.tiporopa }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.tipomaterial.label_tag }}</td>
+                <td>{{ form.tipomaterial }}</td>
+            </tr>
+         </table>
+                <input type="submit" value="Submit">
+            </form>
+
+	</section>
+</body>
+</html>

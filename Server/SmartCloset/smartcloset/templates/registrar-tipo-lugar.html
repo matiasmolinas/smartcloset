@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Smart Closet</title>
+</head>
+<body>
+	<header>
+        <h1>
+            Registrar Nuevo Tipo de Lugar
+        </h1>
+    </header>
+    <section>
+        <form method="post" action="post/">
+            {% csrf_token %}
+            <input type="text" name="nombre">
+        <input type="submit" value="Agregar"/>
+        </form>
+    </section>
+</body>
+</html>
