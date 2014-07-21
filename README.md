@@ -1,4 +1,4 @@
-smartcloset
+Smart Closet
 ===========
 
-Smart Closet using Android Wear
+Smart Closet using Android Wear, Django and Arduino with RFID
